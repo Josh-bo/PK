@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practising</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container w-25">
+        <div class="row mt-5">
+            <div class="col-12 mx-auto text-center">
+                <h1 class="text-center">Sign Up</h1>
+                <input type="text" class="my-2 form-control" placeholder="First Name" id="fname">
+                <input type="text" class="my-2 form-control" placeholder="Last Name" id="lname">
+                <input type="email" class="my-2 form-control" placeholder="E-mail" id="mail">
+                <input type="password" class="my-2 form-control" placeholder="Password" id="pass">
+
+                <button class="btn btn-primary" onclick="sub()">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var allStudents = []
+        function sub(){
+            var students = {
+                firstname : fname.value,
+                lastname : lname.value,
+                email : mail.value,
+                password : pass.value,
+            }
+
+            if(localStorage.getItem('studentDetails')){
+                var newJosh = JSON.parse(localStorage.getItem('studentDetails'))
+                newJosh.push(students)
+                localStorage.setItem('studentsDetails', JSON.stringify(newJosh))
+                // console.log(allStudents)
+
+
+            // alert("hi")
+        }else{
+            allStudents.push(students)
+            localStorage.setItem('studentDetails', JSON.stringify(allStudents))
+        }
+    }
+    </script>
+</body>
+</html>
